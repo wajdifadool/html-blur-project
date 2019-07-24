@@ -1,0 +1,150 @@
+body {
+  background: rgba(0, 0, 0, 0.9);
+  margin: 1000 ;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* showcase */
+/* insert the image as sudo element  */
+.showcase::after{
+  content: '' ;
+  height: 100vh ;
+  width: 100% ;
+  background: url('../images/bg1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(10px);
+  --webkit-filte:blur(10px);
+  transition:  all  1000ms;
+}
+
+.showcase:hover::after{
+  filter: blur(0px);
+  --webkit-filte:blur(0px);
+}
+
+/*  blur the content when hover over the image */
+.showcase:hover .content{
+  filter: blur(2px);
+  --webkit-filte:blur(2px);
+}
+.content {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  margin-top: 105px;
+  margin-left: -145px;
+  transition: all 1000ms;
+  text-align: center;
+  width: 300px;
+  height: 350px;
+}
+.content .logo {
+  height: 180px;
+  width: 180px;
+}
+
+.content .title {
+  font-size: 2.2rem;
+
+}
+.content .text {
+  font-size: 1.7;
+}
+/* Services */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3  , 1fr);
+  grid-gap: 1rem;
+
+}
+.grid-3 div {
+  padding: 20px;
+  border: solid  2px #ccc;
+}
+/* About */
+.bg-light {
+  background: #f4f4f4 ;
+  color: #333;
+}
+
+
+.bg-dark {
+  background: #333 ;
+  color: #f4f4f4 ;
+}
+
+.grid-2 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2  , 1fr);
+
+
+}
+
+/* footer */
+footer {
+  padding:2.2rem;
+}
+footer  p {
+  margin: 0;
+}
+
+/* utility */
+.container{
+  margin-top: 20px;
+  max-width: 960px  ;
+  /*  margin:auto will push evrey thing on the middle  */
+  margin: auto;
+  /* will hide scrollbars or any thing like that */
+  overflow: hidden;
+  padding: 10px;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+
+/* small screens */
+@media(max-width:560px){
+  .showcase::after{
+    height: 50vh;
+  }
+  .content {
+    top:5%;
+    margin-top: 5px;
+  }
+  .content .logo{
+    height: 140px;
+    width: 140px;
+  }
+  .content .text {
+    display: none;
+  }
+  .grid-3 ,
+  .grid-2
+  {
+    display: grid;
+    grid-template-columns: repeat(1  , 1fr);
+    grid-gap: 1rem;
+
+  }
+}
+
+/* Landscape */
+@media(max-height:500px){
+  .content .title,
+  .content .text{
+    display: none;
+  }
+
+  .content {
+    top: 0;
+  }
+
+}
